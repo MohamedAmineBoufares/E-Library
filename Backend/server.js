@@ -70,7 +70,7 @@ app.get('/get/bookList', (req, res) => {
             let books = []
 
             data.map((bookData) => {
-                const conversationInfo = {
+                const bookInfo = {
                     id: bookData._id,
                     name: bookData.bookName,
                     timestamp: bookData.book[0].timestamp
