@@ -1,0 +1,38 @@
+.header__main {
+    background: rgb(223,218,118);
+    
+    background: radial-gradient(circle, rgba(223,218,118,1) 1%, 
+    rgba(153,209,120,1) 41%, rgba(165,218,228,1) 90%);
+
+    display: flex;
+    flex: 1;
+    height: 50px;
+    justify-content: space-between;
+    position: sticky;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+    margin: 25px;
+}
+
+.header__left:hover {
+    cursor: pointer;
+}
+
+.header__middle {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.header__option {
+    display: flex;
+    align-items: center;
+}
+
+.header__option:hover > h3 {
+    border-bottom: 2px solid black;
+    cursor: pointer;
+}
