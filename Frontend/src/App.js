@@ -1,63 +1,34 @@
 import React from 'react'
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './Style/App.css';
 import Header from './Header'
 import Body from './Body'
+import Books from './Books'
 
 function App() {
   return (
-
+  
     <Router>
       
-      <div>
-      <Header/>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/users">Users</Link>
-            </li>
-          </ul>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+      <div className='App'>
+        <Header/>
+        
         <Switch>
-          <Route path="/about">
-            <About />
+
+          <Route path="/viewbooks">
+            <Books/>
           </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
+          
           <Route path="/">
-            <Home />
+            <Body/>
           </Route>
+
         </Switch>
       </div>
+
     </Router>
+  
   );
-}
-
-function Home() {
-  return <Body/>
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
 
 export default App;
