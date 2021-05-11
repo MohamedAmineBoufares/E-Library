@@ -32,12 +32,13 @@
     align-items: center;
 }
 
-.headr__option__link:hover > h3 {
+.header__option__link:hover > h3 {
     border-bottom: 2px solid black;
     cursor: pointer;
 }
 
-.headr__option__link {
+.header__option__link {
     text-decoration: none;
     color: black;
 }
+

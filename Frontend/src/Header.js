@@ -19,14 +19,14 @@ function Header() {
             <div className='header__middle'>
 
                 <div className='header__option'>
-                    <Link to="/" className='headr__option__link'>
+                    <Link to="/" className='header__option__link'>
                         <h3>Add A book</h3>
                     </Link>
                    
                 </div>
                
                <div className='header__option'>
-                    <Link className='headr__option__link' to="/viewbooks">
+                    <Link className='header__option__link' to="/viewbooks">
                         <h3>View books</h3>
                     </Link>
                     

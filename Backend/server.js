@@ -24,23 +24,7 @@ mongoose.connect(mongoURI, {
 })
 
 mongoose.connection.once('open', () => {
-    console.log('DB Connected')
-
-    const changeStream = mongoose.connection.collection('books').watch()
-
-    changeStream.on('change', (change) => {
-        if (change.operationType === 'insert') {
-            pusher.trigger('chats', 'newChat', {
-                'change': change
-            })
-        } else if (change.operationType === 'update') {
-            pusher.trigger('messages', 'newMessage', {
-                'change': change
-            })
-        } else {
-            console.log('Error triggering Pusher...')
-        }
-    })
+    console.log('DB Connected');
 })
 
 // api routes
@@ -58,36 +42,9 @@ app.post('/new/book', (req, res) => {
     })
 })
 
-app.get('/get/bookList', (req, res) => {
+app.get('/get/allBooks', (req, res) => {
+  
     mongoData.find((err, data) => {
-        if (err) {
-            res.status(500).send(err)
-        } else {
-            data.sort((b, a) => {
-                return a.timestamp - b.timestamp;
-            });
-
-            let books = []
-
-            data.map((bookData) => {
-                const bookInfo = {
-                    id: bookData._id,
-                    name: bookData.bookName,
-                    timestamp: bookData.book[0].timestamp
-                }
-
-                books.push(bookInfo)
-            })
-
-            res.status(200).send(books)
-        }
-    })
-})
-
-app.get('/get/conversation', (req, res) => {
-    const id = req.query.id
-
-    mongoData.find({ _id: id }, (err, data) => {
         if (err) {
             res.status(500).send(err)
         } else {
