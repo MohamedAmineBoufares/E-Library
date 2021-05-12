@@ -42,13 +42,44 @@ app.post('/new/book', (req, res) => {
     })
 })
 
+app.post('/update/book', (req, res) => {
+    mongoData.updateOne(
+        { _id: req.query.id },
+        { $set: req.body },
+        (err, data) => {
+            if (err) {
+                console.log('Error updating book...')
+                console.log(err)
+
+                res.status(500).send(err)
+            } else {
+                res.status(201).send(data)
+                console.log(data)
+            }
+        }
+    )
+})
+
 app.get('/get/allBooks', (req, res) => {
   
     mongoData.find((err, data) => {
         if (err) {
             res.status(500).send(err)
         } else {
+            
             res.status(200).send(data)
+        }
+    })
+})
+
+app.delete('/delete/book', (req, res) => {
+    const id = req.query.id
+
+    mongoData.findByIdAndDelete({ _id: id }, (err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            res.status(200).send('deleted')
         }
     })
 })
