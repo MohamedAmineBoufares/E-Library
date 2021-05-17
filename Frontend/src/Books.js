@@ -8,8 +8,10 @@ function Books() {
     const [books, setBooks] = useState([]);
 
     const getBooks = () => {
+
             axios.get('/get/allBooks').then((res) => {
                 setBooks(res.data)
+                
             })
     }
 

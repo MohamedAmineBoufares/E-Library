@@ -4,29 +4,60 @@ import './Style/App.css';
 import Header from './Header'
 import Body from './Body'
 import Books from './Books'
+import Login from './Login';
+import axios from './axios'
+import { useState, useEffect } from 'react';
+
 
 function App() {
-  return (
-  
-    <Router>
+
+  const [user, setUser] = useState([])
+
+  const getUser = () => {
+
+    axios.get('/get/userConnected?connected=true').then((res) => {
+        setUser(res.data)
+
+    })} 
+
+  useEffect (() => {
       
-      <div className='App'>
-        <Header/>
-        
-        <Switch>
+    getUser();
 
-          <Route path="/viewbooks">
-            <Books/>
-          </Route>
-          
-          <Route path="/">
-            <Body/>
-          </Route>
+  }, [])
 
-        </Switch>
-      </div>
+  //const result = user.filter(us => us.connected===false)
+  console.log(user.connected)
 
-    </Router>
+  return (
+
+    <div className='App'>
+
+      {
+        user.connected ? (
+                              <Router>
+
+                                <Header name={user.userName}/>
+                                <Switch>
+                                    
+                                  <Route path="/viewbooks">
+                                    <Books/>
+                                  </Route>
+
+                                  <Route path="/">
+                                    <Body/>
+                                  </Route>
+
+                                </Switch>
+
+                              </Router>
+                                
+          ) : <Login/>
+      }
+
+    </div>
+
+
   
   );
 }
