@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  display: flex;
+  padding: 200px 50px 0 50px;
+  flex-wrap:wrap;
+}
+
+.card{
+  flex: 1 0 33%;
+}

@@ -1,0 +1,15 @@
+.description__main{
+    display:flex;
+    flex:1;
+}
+
+.description__image {
+    display: flex;
+    flex: 0.4;
+    
+}
+
+.description__summary {
+    flex: 0.55;
+    background-color: red;
+}
