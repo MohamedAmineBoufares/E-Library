@@ -25,7 +25,7 @@ function Books() {
 
         <div className='books__body'>
 
-            { books.map(({ _id, bookName, author, price, quantity, url}) => (
+            { books.map(({ _id, bookName, author, price, quantity, url }) => (
                 
                 <BookElem id={_id} 
                         src={url}

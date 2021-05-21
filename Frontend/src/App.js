@@ -1,12 +1,16 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './Style/App.css';
-import Header from './Header'
+/*import Header from './Header'
 import Body from './Body'
 import Books from './Books'
-import Login from './Login';
+import Login from './Login'; */
 import axios from './axios'
-import { useState, useEffect } from 'react';
+import Description from './Description'
+import Catalogue from './Catalogue'
+import HeaderClient from './HeaderClient';
+
 
 
 function App() {
@@ -18,7 +22,7 @@ function App() {
     axios.get('/get/userConnected?connected=true').then((res) => {
         setUser(res.data)
 
-    })} 
+    })}
 
   useEffect (() => {
       
@@ -26,14 +30,33 @@ function App() {
 
   }, [])
 
+
+  const [books, setBooks] = useState([]);
+
+    const getBooks = () => {
+
+            axios.get('/get/allBooks').then((res) => {
+                setBooks(res.data)
+                
+            })
+    }
+
+    useEffect (() => {
+    
+        getBooks();
+
+    }, [])
+
   //const result = user.filter(us => us.connected===false)
   console.log(user.connected)
+  
+  
 
   return (
 
     <div className='App'>
 
-      {
+      {/*
         user.connected ? (
                               <Router>
 
@@ -53,7 +76,50 @@ function App() {
                               </Router>
                                 
           ) : <Login/>
-      }
+      */}
+      
+      <Router>
+
+      <div className="App">
+        <HeaderClient/>
+        
+        <Switch>
+
+         
+          
+          { books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages }) => (
+            
+
+            <Route path={`/show_more/${_id}`}>
+                <Description 
+                        src={url}
+                        summary={bookSum}
+                        price={price}
+                        quantity={quantity}
+                        genre={genre}
+                        author={author}
+                        numPages={numPages}
+                        /> 
+                        </Route>
+                    
+                )
+                
+            )}
+
+          
+
+          <Route path="/">
+               <Catalogue/>
+          </Route>
+
+        </Switch>
+      </div>
+    </Router>
+
+
+
+
+
 
     </div>
 
