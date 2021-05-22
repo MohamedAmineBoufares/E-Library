@@ -37,6 +37,10 @@
     align-items: center;
 }
 
+.header__option:hover {
+    cursor: pointer;
+}
+
 .header__right {
     display: flex;
     flex: 0.1;
@@ -55,4 +59,10 @@
     left: 0.01rem;
     padding: 0.1rem;
     border-radius: 50% ;
+}
+
+@media screen and (max-width: 750px) {
+    .header__option > h1, .header__right {
+        display: none;
+    }
 }

@@ -5,6 +5,7 @@ import cors from 'cors'
 
 import mongoData from './mongoData.js'
 import mongoAuth from './mongoAuth.js'
+import mongoClient from './mongoClient.js'
 
 // app config
 const app = express()
@@ -167,6 +168,105 @@ app.get('/get/allUsers', (req, res) => {
         }
     })
 })
+
+// CLIENTS
+
+app.post('/new/client', (req, res) => {
+    
+    const dbData = req.body
+
+    mongoClient.create(dbData, (err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            res.status(201).send(data)
+        }
+    })
+})
+
+app.post('/update/clienIsConnected', (req, res) => {
+    
+    mongoClient.updateOne(
+        { clientName: req.query.clientName },
+        { $set: req.body },
+        (err, data) => {
+            if (err) {
+                console.log('Error updating ...')
+                console.log(err)
+
+                res.status(500).send(err)
+            } else {
+                res.status(201).send(data)
+                console.log(data)
+            }
+        }
+    )
+})
+
+app.get('/get/allClients', (req, res) => {
+
+    mongoClient.find((err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            
+            res.status(200).send(data)
+        }
+    })
+})
+
+app.post('/update/clientCart', (req, res) => {
+    
+    mongoClient.updateOne(
+        { clientName: req.query.clientName },
+        { $push: req.body },
+        (err, data) => {
+            if (err) {
+                console.log('Error updating ...')
+                console.log(err)
+
+                res.status(500).send(err)
+            } else {
+                res.status(201).send(data)
+                console.log(data)
+            }
+        }
+    )
+})
+
+app.post('/update/clientFavorites', (req, res) => {
+    
+    mongoClient.updateOne(
+        { clientName: req.query.clientName },
+        { $push: req.body },
+        (err, data) => {
+            if (err) {
+                console.log('Error updating ...')
+                console.log(err)
+
+                res.status(500).send(err)
+            } else {
+                res.status(201).send(data)
+                console.log(data)
+            }
+        }
+    )
+})
+
+app.get('/get/clientConnected', (req, res) => {
+
+    const isConnected = req.query.isConnected
+  
+    mongoClient.findOne({ isConnected: isConnected }, (err, data) => {
+        if (err) {
+            res.status(500).send(err)
+        } else {
+            
+            res.status(200).send(data)
+        }
+    })
+})
+
 
 // listening
 app.listen(port, () => console.log(`listening on loclahost: ${port}`))

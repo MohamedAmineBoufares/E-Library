@@ -30,7 +30,6 @@ function App() {
 
   }, [])
 
-
   const [books, setBooks] = useState([]);
 
     const getBooks = () => {
@@ -48,7 +47,7 @@ function App() {
     }, [])
 
   //const result = user.filter(us => us.connected===false)
-  console.log(user.connected)
+  //console.log(user.connected)
   
   
 
@@ -87,10 +86,10 @@ function App() {
 
          
           
-          { books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages }) => (
+          { books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages, bookName }, i) => (
             
 
-            <Route path={`/show_more/${_id}`}>
+            <Route path={`/show_more/${_id}`} key={i}>
                 <Description 
                         src={url}
                         summary={bookSum}
@@ -99,6 +98,7 @@ function App() {
                         genre={genre}
                         author={author}
                         numPages={numPages}
+                        bookName={bookName}
                         /> 
                         </Route>
                     

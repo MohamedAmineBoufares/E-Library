@@ -73,3 +73,17 @@
     cursor: pointer;
     color: green;
 }
+
+@media screen and (max-width: 680px) {
+    .description__image{
+        display: none;
+    }
+
+    .description__summary {
+        width: 100%;
+    }
+
+    .description__right__inofs {
+        flex-direction: column;
+    }
+}

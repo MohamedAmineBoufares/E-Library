@@ -1,20 +1,16 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
-
 import './Style/Card.css'
-import { Link, Route, useRouteMatch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import axios from './axios'
 
 
 function Card({ id, title, imageUrl, body, qt }) {
 
+    
+
     return (
 
-        <div>
-
-        
         <Link to={`/show_more/${id}`} className='link'>
                
             <div className='card-container'>
@@ -51,16 +47,18 @@ function Card({ id, title, imageUrl, body, qt }) {
                     <h3>Click me to show more </h3>
                 </div>
 
-                <div style={ qt != 0 ? {display: 'none'} : {display: 'block'} }>
-                    <h1 className='sold-out'> Sold OUT ! 😔</h1>
+                <div style={ qt !== 0 ? {display: 'none'} : {display: 'block'} }>
+                    
+                    <h1 className='sold-out'> Sold OUT ! 
+                        <span role='img' aria-label='xxxxx'> 😔</span> 
+                    </h1>
+                
                 </div>
 
             </div>
 
         </Link>
 
-        </div>
-        
     )
 }
 
