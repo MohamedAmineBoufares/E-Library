@@ -1,0 +1,71 @@
+.books__content {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.books__content__left {
+    display: flex;
+    flex: 0.4;
+    align-items: center;
+}
+
+.books__content__left > div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.books__content__left > div > h3 {
+    align-self: flex-start;
+}
+
+.books__content__middle {
+    display: flex;
+    flex-direction: column;
+}
+
+.books__content__right {
+    display: flex;
+    flex-direction: column;
+}
+
+.books__content__right > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.books__content__end {
+    display: flex;
+}
+
+.icon__plus:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.icon__min:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.icon__bin {
+    color: gray;
+}
+
+.icon__bin:hover {
+    color: red;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+    .books__content {
+        flex-direction: column;
+    }
+}
