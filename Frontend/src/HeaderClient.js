@@ -84,7 +84,7 @@ function HeaderClient() {
             <div className='header__left'>
 
                 <SearchIcon />
-                <input placeholder='a3mil recherche' type='text'/>
+                <input placeholder='Search for a book' type='text'/>
             
             </div>
 
@@ -98,7 +98,7 @@ function HeaderClient() {
 
                 <div className='header__option' onClick={signOut}>
                         
-                        <h3>bye :( </h3>
+                        <h2> Bye ? </h2>
                     
                 </div>
                 

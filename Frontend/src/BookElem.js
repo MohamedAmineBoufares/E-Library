@@ -54,7 +54,7 @@ function BookElem({src, title, author, price, qt, id}) {
         <div className='books__content' style={{borderColor: (qt + Qt) === 0 ? 'red' : 'black'}}>
                 
             <div className='books__content__left'>
-                <img src={src} alt='book cover' width='100'/>
+                <img src={src} alt='book cover' width='150'/>
                 <div>
                     <h1>{title}</h1>
                     <h3>{author}</h3>

@@ -1,12 +1,12 @@
 .books__content {
     display: flex;
     flex: 1;
-    padding: 10px;
+    padding: 1rem;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid;
+    border: 0.2rem solid;
     border-radius: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 3rem;
 }
 
 .books__content__left {

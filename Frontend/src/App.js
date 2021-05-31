@@ -2,14 +2,14 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Style/App.css';
-/*import Header from './Header'
+import Header from './Header'
 import Body from './Body'
 import Books from './Books'
-import Login from './Login'; */
+import Login from './Login'; 
 import axios from './axios'
-import Description from './Description'
+/*import Description from './Description'
 import Catalogue from './Catalogue'
-import HeaderClient from './HeaderClient';
+import HeaderClient from './HeaderClient'; */
 
 
 
@@ -55,11 +55,11 @@ function App() {
 
     <div className='App'>
 
-      {/*
+      {
         user.connected ? (
                               <Router>
 
-                                <Header name={user.userName}/>
+                                <Header name={user.userName} />
                                 <Switch>
                                     
                                   <Route path="/viewbooks">
@@ -75,9 +75,9 @@ function App() {
                               </Router>
                                 
           ) : <Login/>
-      */}
+      }
       
-      <Router>
+     {/* <Router>
 
       <div className="App">
         <HeaderClient/>
@@ -86,7 +86,7 @@ function App() {
 
          
           
-          { books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages, bookName }, i) => (
+          { /*books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages, bookName }, i) => (
             
 
             <Route path={`/show_more/${_id}`} key={i}>
@@ -104,21 +104,18 @@ function App() {
                     
                 )
                 
-            )}
+            )*/}
 
           
 
-          <Route path="/">
+         {/* <Route path="/">
                <Catalogue/>
           </Route>
 
         </Switch>
       </div>
     </Router>
-
-
-
-
+         */}
 
 
     </div>

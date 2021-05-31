@@ -162,7 +162,7 @@ function Body() {
                 <div className='body__info__btn' onClick={addBook}>Add Book</div>
                 
             </div>
-            <img className='image__logo' src='icon.png' alt='E-Library Logo' width='350'/>
+            <img className='image__logo' src='/icon.png' alt='E-Library Logo' width='350'/>
         </div>
     )
 }
