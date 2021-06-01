@@ -1,15 +1,19 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
 import './Style/App.css';
-import Header from './Header'
-import Body from './Body'
-import Books from './Books'
-import Login from './Login'; 
+
+import Header from './Admin/Header'
+import Body from './Admin/Body'
+import Books from './Admin/Books'
+import Login from './Admin/Login'; 
+
 import axios from './axios'
-/*import Description from './Description'
-import Catalogue from './Catalogue'
-import HeaderClient from './HeaderClient'; */
+
+import Description from './Client/Description'
+import Catalogue from './Client/Catalogue'
+import HeaderClient from './Client/HeaderClient';
 
 
 
@@ -55,7 +59,7 @@ function App() {
 
     <div className='App'>
 
-      {
+      { 
         user.connected ? (
                               <Router>
 
@@ -74,54 +78,48 @@ function App() {
 
                               </Router>
                                 
-          ) : <Login/>
-      }
-      
-     {/* <Router>
-
-      <div className="App">
-        <HeaderClient/>
-        
-        <Switch>
-
+          ) : (
          
-          
-          { /*books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages, bookName }, i) => (
-            
+          <Router>
 
-            <Route path={`/show_more/${_id}`} key={i}>
-                <Description 
-                        src={url}
-                        summary={bookSum}
-                        price={price}
-                        quantity={quantity}
-                        genre={genre}
-                        author={author}
-                        numPages={numPages}
-                        bookName={bookName}
-                        /> 
-                        </Route>
+            <Switch>
+                                    
+              <Route path="/Catalogue">
+                <HeaderClient/>
+                <Catalogue/>
+              </Route>
+
+            {books.map(({ _id, bookSum, url, price, quantity, author, genre, numPages, bookName }, i) => (
+            
+              <Route path={`/show_more/${_id}`} key={i}>
+                <HeaderClient/>
+                    <Description 
+                            src={url}
+                            summary={bookSum}
+                            price={price}
+                            quantity={quantity}
+                            genre={genre}
+                            author={author}
+                            numPages={numPages}
+                            bookName={bookName}
+                            /> 
+              </Route>
                     
                 )
                 
-            )*/}
+            ) }
 
-          
+              <Route path="/">
+                <Login/>
+              </Route>
 
-         {/* <Route path="/">
-               <Catalogue/>
-          </Route>
+            </Switch>
 
-        </Switch>
-      </div>
-    </Router>
-         */}
+          </Router>)
+      }
+      
+</div>
 
-
-    </div>
-
-
-  
   );
 }
 

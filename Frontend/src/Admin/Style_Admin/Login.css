@@ -1,0 +1,58 @@
+.login__body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: url('../../icon.png') no-repeat fixed 20px/700px;
+}
+
+.just__client {
+    color: red;
+}
+
+.login__infos {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255, 0.5);
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 3rem;
+    margin: 5rem;
+    
+}
+
+input {
+    outline: none;
+    background-color: rgb(148, 148, 148, 0.2);
+}
+
+.login__enter {
+    margin: 50px 0 20px 0;
+    font-size: 25px;
+    padding: 5px 0 5px 0;
+    border: 1px solid black;
+    border-radius: 50px;
+}
+
+.login__enter:hover {
+    background-color: green;
+    cursor: pointer;
+    color: white;
+    border-color: green;
+}
+
+.password__input > div {
+    display: flex;
+    align-items: center;
+}
+
+.eye__icon {
+    color: gray;
+    padding-left: 10px;
+}
+
+.eye__icon:hover {
+    cursor: pointer;
+    color: black;
+}

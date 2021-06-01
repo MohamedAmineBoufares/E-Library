@@ -1,0 +1,49 @@
+.header__main {
+    background: rgb(223,218,118);
+    background: radial-gradient(circle, rgba(223,218,118,1) 1%, 
+    rgba(153,209,120,1) 41%, rgba(165,218,228,1) 90%);
+
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 4.2rem;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.header__left__admin {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.header__middle {
+    display: flex;
+    flex: 1;
+    justify-content: space-evenly;
+}
+
+.header__option {
+    display: flex;
+    align-items: center;
+}
+
+.header__option__link:hover > h3 {
+    border-bottom: 2px solid black;
+    cursor: pointer;
+}
+
+.header__option__link {
+    text-decoration: none;
+    color: black;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.header__right:hover {
+    cursor: pointer;
+}
